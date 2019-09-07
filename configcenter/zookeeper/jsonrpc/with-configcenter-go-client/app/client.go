@@ -86,9 +86,11 @@ func main() {
 
 	println("\n\n\nstart to test jsonrpc - getUser")
 	user = &JsonRPCUser{}
-	err = userProvider.GetUser2(context.TODO(), []interface{}{1}, user)
+	var i int32 = 2
+	err = userProvider.GetUser2(context.TODO(), []interface{}{i}, user)
 	if err != nil {
-		panic(err)
+		//	panic(err)
+		println(err.Error())
 	}
 	println("response result: %v", user)
 
@@ -101,9 +103,10 @@ func main() {
 
 	println("\n\n\nstart to test jsonrpc illegal method")
 	err = userProvider.GetUser1(context.TODO(), []interface{}{"A003"}, user)
-	if err != nil {
-		panic(err)
+	if err == nil {
+		panic("err is nil")
 	}
+	println("error: %v", err)
 
 	initSignal()
 }

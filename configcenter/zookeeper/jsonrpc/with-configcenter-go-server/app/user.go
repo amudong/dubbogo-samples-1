@@ -20,15 +20,11 @@ package main
 import (
 	"context"
 	"fmt"
+	"strconv"
 	"time"
-)
 
-import (
-	perrors "github.com/pkg/errors"
-)
-
-import (
 	"github.com/apache/dubbo-go/config"
+	perrors "github.com/pkg/errors"
 )
 
 type Gender int
@@ -144,6 +140,24 @@ func (u *UserProvider) GetUsers(req []interface{}) ([]User, error) {
 	println("user1:%v", user1)
 
 	return []User{*user, *user1}, err
+}
+
+func (u *UserProvider) GetUser2(ctx context.Context, req []interface{}, rsp *User) error {
+	var err error
+
+	println("req:%#v", req)
+	rsp.Id = strconv.Itoa(int(req[0].(int32)))
+	return err
+}
+
+func (u *UserProvider) GetUser3() error {
+	return nil
+}
+
+func (s *UserProvider) MethodMapper() map[string]string {
+	return map[string]string{
+		"GetUser2": "getUser",
+	}
 }
 
 func (u *UserProvider) Reference() string {

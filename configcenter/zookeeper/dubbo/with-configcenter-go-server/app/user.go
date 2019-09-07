@@ -25,12 +25,12 @@ import (
 )
 
 import (
-	hessian "github.com/apache/dubbo-go-hessian2"
-	"github.com/apache/dubbo-go-hessian2/java_exception"
 	perrors "github.com/pkg/errors"
 )
 
 import (
+	hessian "github.com/apache/dubbo-go-hessian2"
+	"github.com/apache/dubbo-go-hessian2/java_exception"
 	"github.com/apache/dubbo-go/config"
 )
 

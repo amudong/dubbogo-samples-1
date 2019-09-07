@@ -28,9 +28,6 @@ import (
 
 import (
 	hessian "github.com/apache/dubbo-go-hessian2"
-)
-
-import (
 	"github.com/apache/dubbo-go/common/logger"
 	_ "github.com/apache/dubbo-go/common/proxy/proxy_factory"
 	"github.com/apache/dubbo-go/config"
@@ -136,7 +133,7 @@ func initSignal() {
 		case syscall.SIGHUP:
 			// reload()
 		default:
-			go time.AfterFunc(time.Duration(survivalTimeout)*time.Second, func() {
+			time.AfterFunc(time.Duration(survivalTimeout)*time.Second, func() {
 				logger.Warnf("app exit now by force...")
 				os.Exit(1)
 			})
