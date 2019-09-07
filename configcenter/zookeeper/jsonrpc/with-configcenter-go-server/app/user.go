@@ -146,7 +146,8 @@ func (u *UserProvider) GetUser2(ctx context.Context, req []interface{}, rsp *Use
 	var err error
 
 	println("req:%#v", req)
-	rsp.Id = strconv.Itoa(int(req[0].(int32)))
+	rsp.Id = strconv.FormatFloat(req[0].(float64), 'f', 0, 64)
+	rsp.Sex = Gender(MAN).String()
 	return err
 }
 
