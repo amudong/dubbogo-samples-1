@@ -12,6 +12,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
+
 <assembly>
 	<id>assembly</id>
 	<formats>
@@ -23,17 +24,15 @@
 			<directory>${project.build.directory}/dubbo/META-INF/assembly/bin</directory>
 			<outputDirectory>bin</outputDirectory>
 			<fileMode>0755</fileMode>
-            <directoryMode>0755</directoryMode>
 		</fileSet>
 		<fileSet>
-            <directory>src/main/resources</directory>
-            <includes>
-                <include>dubbo.properties</include>
-                <include>log4j.*</include>
-            </includes>
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>dubbo.properties</include>
+				<include>log4j.*</include>
+			</includes>
 			<outputDirectory>conf</outputDirectory>
 			<fileMode>0644</fileMode>
-            <directoryMode>0755</directoryMode>
 		</fileSet>
 	</fileSets>
 	<dependencySets>

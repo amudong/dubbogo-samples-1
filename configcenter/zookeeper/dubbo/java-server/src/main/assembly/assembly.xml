@@ -28,7 +28,6 @@
 		<fileSet>
             <directory>src/main/resources</directory>
             <includes>
-                <include>dubbo.properties</include>
                 <include>log4j.*</include>
             </includes>
 			<outputDirectory>conf</outputDirectory>
