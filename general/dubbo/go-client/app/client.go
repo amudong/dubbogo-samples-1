@@ -35,7 +35,6 @@ import (
 	"github.com/apache/dubbo-go/config"
 	_ "github.com/apache/dubbo-go/protocol/dubbo"
 	_ "github.com/apache/dubbo-go/registry/protocol"
-
 	_ "github.com/apache/dubbo-go/filter/impl"
 
 	_ "github.com/apache/dubbo-go/cluster/cluster_impl"
@@ -64,7 +63,6 @@ func main() {
 	test1()
 	println("\n\ntest2")
 	test2()
-
 	initSignal()
 }
 
@@ -137,6 +135,14 @@ func test() {
 	}
 	println("response result: %v", user)
 
+	println("\n\n\nstart to test dubbo - getUser - overload")
+	user = &User{}
+	err = userProvider.GetUser2(context.TODO(), []interface{}{i, "overload"}, user)
+	if err != nil {
+		panic(err)
+	}
+	println("response result: %v", user)
+
 	println("\n\n\nstart to test dubbo - GetUser3")
 	err = userProvider.GetUser3()
 	if err != nil {
@@ -201,6 +207,14 @@ func test1() {
 	}
 	println("response result: %v", user)
 
+	println("\n\n\nstart to test dubbo - getUser - overload")
+	user = &User{}
+	err = userProvider1.GetUser2(context.TODO(), []interface{}{i, "overload"}, user)
+	if err != nil {
+		panic(err)
+	}
+	println("response result: %v", user)
+
 	println("\n\n\nstart to test dubbo - GetUser3")
 	err = userProvider1.GetUser3()
 	if err != nil {
@@ -260,6 +274,14 @@ func test2() {
 	user = &User{}
 	var i int32 = 1
 	err = userProvider2.GetUser2(context.TODO(), []interface{}{i}, user)
+	if err != nil {
+		panic(err)
+	}
+	println("response result: %v", user)
+
+	println("\n\n\nstart to test dubbo - getUser - overload")
+	user = &User{}
+	err = userProvider2.GetUser2(context.TODO(), []interface{}{i, "overload"}, user)
 	if err != nil {
 		panic(err)
 	}
