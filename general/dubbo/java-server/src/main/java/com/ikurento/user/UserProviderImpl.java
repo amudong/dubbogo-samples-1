@@ -17,7 +17,6 @@
 
 package com.ikurento.user;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
@@ -46,9 +45,11 @@ public class UserProviderImpl implements UserProvider {
     public User GetUser(String userId) {
         return new User(userId, "zhangsan", 18);
     }
+
     public User GetErr(String userId) throws Exception {
         throw new Exception("exception");
     }
+
     public User GetUser0(String userId, String name) {
             return new User(userId, name, 18);
     }
@@ -71,6 +72,7 @@ public class UserProviderImpl implements UserProvider {
     }
 
     public void GetUser3() {
+        LOG.info("this is GetUser3 of impl");
     }
 
     public Map<String, User> GetUserMap(List<String> userIdList) {
@@ -103,6 +105,9 @@ public class UserProviderImpl implements UserProvider {
         return new User(String.valueOf(userCode), "userCode get", 48);
     }
 
+    public User getUser(int usercode, String name) {
+        return new User(String.valueOf(usercode), name, 38);
+    }
 
     public int Calc(int a,int b) {
         return a + b;
