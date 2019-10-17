@@ -22,8 +22,11 @@ github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRF
 github.com/aliyun/alibaba-cloud-sdk-go v0.0.0-20190802083043-4cd0c391755e h1:MSuLXx/mveDbpDNhVrcWTMeV4lbYWKcyO4rH+jAxmX0=
 github.com/aliyun/alibaba-cloud-sdk-go v0.0.0-20190802083043-4cd0c391755e/go.mod h1:myCDvQSzCW+wB1WAlocEru4wMGJxy+vlxHdhegi1CDQ=
 github.com/aliyun/aliyun-oss-go-sdk v0.0.0-20190307165228-86c17b95fcd5/go.mod h1:T/Aws4fEfogEE9v+HPhhw+CntffsBHJ8nXQCwKr0/g8=
+github.com/apache/dubbo-go v0.1.2-0.20191017063319-6221170b0746 h1:7k0jeEjj+F4xR0pTT+pDNQA2Ojs7yiGni1+qRQDfdEc=
+github.com/apache/dubbo-go v0.1.2-0.20191017063319-6221170b0746/go.mod h1:NLl4VKDx4s2lUF6WM11q+jOcnP6VfxbNVV89pvXJw+w=
 github.com/apache/dubbo-go v1.0.1-0.20190930145926-02d871848026 h1:QlTJpp2BmX8BPCuE6ejtzXxuf6aLlhyZWajYeFLyrNg=
 github.com/apache/dubbo-go v1.0.1-0.20190930145926-02d871848026/go.mod h1:NLl4VKDx4s2lUF6WM11q+jOcnP6VfxbNVV89pvXJw+w=
+github.com/apache/dubbo-go v1.1.0 h1:L3BaAvMyI0pCFJRs5ULqrIQnmlEAxWepaTC3CZeBj2k=
 github.com/apache/dubbo-go-hessian2 v1.2.5-0.20190923055845-e3dd5d131df5 h1:p85EqnwOfcqqayW7OPREn0YJxIPIuEmuBJPezzhtO/M=
 github.com/apache/dubbo-go-hessian2 v1.2.5-0.20190923055845-e3dd5d131df5/go.mod h1:LWnndnrFXZmJLAzoyNAPNHSIJ1KOHVkTSsHgC3YYWlo=
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod h1:3U/XgcO3hCbHZ8TKRvWD2dDTCfh9M9ya+I9JpbB7O8o=
