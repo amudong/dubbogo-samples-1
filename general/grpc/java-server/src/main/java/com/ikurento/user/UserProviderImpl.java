@@ -2,6 +2,7 @@ package com.ikurento.user;
 
 import com.google.protobuf.ProtocolStringList;
 import com.google.protobuf.Timestamp;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
 
@@ -37,4 +38,13 @@ public class UserProviderImpl extends UserProviderGrpc.UserProviderImplBase {
         responseObserver.onCompleted();
     }
 
+
+    @Override
+    public void getErr(UserId request, StreamObserver<User> responseObserver){
+        try{
+            throw new Exception("test error");
+        }catch(Exception ex){
+             responseObserver.onError(Status.INTERNAL.withCause(ex).asException());
+        }
+     }
 }

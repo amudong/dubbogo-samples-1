@@ -135,7 +135,11 @@
             <artifactId>grpc-stub</artifactId>
             <version>1.19.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-api</artifactId>
+            <version>1.24.1</version>
+        </dependency>
     </dependencies>
 
     <repositories>

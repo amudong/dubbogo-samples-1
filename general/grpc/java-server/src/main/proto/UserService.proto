@@ -21,14 +21,14 @@ option objc_class_prefix = "UP";
 
 package helloworld;
 
-// The greeting service definition.
+// The UserProvider service definition.
 service UserProvider {
-  // Sends a greeting
   rpc getUser (UserId) returns (User) {}
   rpc getUserList (UserIdList) returns (UserList) {}
+  rpc getErr(UserId) returns (User) {}
 }
 
-// The request message containing the user's name.
+// The request message containing the user's information.
 message User {
   string id = 1;
   string name = 2;

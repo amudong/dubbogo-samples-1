@@ -20,7 +20,9 @@ package com.ikurento.user;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 import com.alibaba.dubbo.rpc.service.EchoService;
+
 import java.util.List;
 
 public class Consumer {
@@ -38,11 +40,13 @@ public class Consumer {
         testGetUser();
         System.out.println("\n\ntestList");
         testGetUserList();
+        System.out.println("\n\ntestErr");
+        testGetErr();
     }
 
     private void testGetUser() throws Exception {
         try {
-            UserId userId =  UserId.newBuilder().setId("A003").build();
+            UserId userId = UserId.newBuilder().setId("A003").build();
             User user1 = userProvider.getUser(userId);
             System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " +
                     " UserInfo, Id:" + user1.getId() + ", name:" + user1.getName() + ", sex:" + user1.getSex().toString()
@@ -63,6 +67,16 @@ public class Consumer {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void testGetErr() throws Exception {
+        try {
+            UserId userId = UserId.newBuilder().setId("A003").build();
+            userProvider.getErr(userId);
+        } catch (Throwable t) {
+            System.out.println("*************exception***********");
+            t.printStackTrace();
         }
     }
 }
