@@ -25,6 +25,7 @@ package helloworld;
 service UserProvider {
   // Sends a greeting
   rpc getUser (UserId) returns (User) {}
+  rpc getUserList (UserIdList) returns (UserList) {}
 }
 
 // The request message containing the user's name.
@@ -43,4 +44,12 @@ enum Gender{
 
 message UserId{
   string id = 1;
+}
+
+message UserIdList{
+  repeated string id = 1;
+}
+
+message UserList{
+  repeated User user = 1;
 }

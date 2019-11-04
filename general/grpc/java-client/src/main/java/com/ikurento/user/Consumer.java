@@ -36,14 +36,11 @@ public class Consumer {
     public void start() throws Exception {
         System.out.println("\n\ntest");
         testGetUser();
+        System.out.println("\n\ntestList");
+        testGetUserList();
     }
 
     private void testGetUser() throws Exception {
-        try {
-            EchoService echoService = (EchoService)userProvider;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         try {
             UserId userId =  UserId.newBuilder().setId("A003").build();
             User user1 = userProvider.getUser(userId);
@@ -55,4 +52,17 @@ public class Consumer {
         }
     }
 
+    private void testGetUserList() throws Exception {
+        try {
+            UserIdList userIdList = UserIdList.newBuilder().addId("A003").addId("A002").build();
+            UserList userList = userProvider.getUserList(userIdList);
+            for (User user : userList.getUserList()) {
+                System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " +
+                        " UserInfo, Id:" + user.getId() + ", name:" + user.getName() + ", sex:" + user.getSex().toString()
+                        + ", age:" + user.getAge() + ", time:" + user.getTime().toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
