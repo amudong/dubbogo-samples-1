@@ -18,12 +18,11 @@
 package com.ikurento.user;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.CountDownLatch;
 
-import com.alibaba.dubbo.rpc.service.EchoService;
+import io.grpc.stub.StreamObserver;
 
-import java.util.List;
 
 public class Consumer {
     // Define a private variable (Required in Spring)
@@ -42,6 +41,8 @@ public class Consumer {
         testGetUserList();
         System.out.println("\n\ntestErr");
         testGetErr();
+        System.out.println("\n\ntestStream");
+        testGetUserByStream();
     }
 
     private void testGetUser() throws Exception {
@@ -77,6 +78,34 @@ public class Consumer {
         } catch (Throwable t) {
             System.out.println("*************exception***********");
             t.printStackTrace();
+        }
+    }
+
+    private void testGetUserByStream() {
+        try {
+            UserId userId = UserId.newBuilder().setId("A001").build();
+            userProvider.getUserByStream(userId, new StreamObserver<User>() {
+                @Override
+                public void onNext(User user) {
+                    System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " +
+                            " UserInfo, Id:" + user.getId() + ", name:" + user.getName() + ", sex:" + user.getSex().toString()
+                            + ", age:" + user.getAge() + ", time:" + user.getTime().toString());
+                }
+
+                @Override
+                public void onError(Throwable t) {
+                    t.printStackTrace();
+                }
+
+                @Override
+                public void onCompleted() {
+                    System.out.println("Done");
+                }
+            });
+
+        } catch (Exception e) {
+            System.out.println("*************exception***********");
+            e.printStackTrace();
         }
     }
 }

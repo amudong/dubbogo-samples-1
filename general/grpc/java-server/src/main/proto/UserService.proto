@@ -26,6 +26,7 @@ service UserProvider {
   rpc getUser (UserId) returns (User) {}
   rpc getUserList (UserIdList) returns (UserList) {}
   rpc getErr(UserId) returns (User) {}
+  rpc getUserByStream(UserId) returns (stream User){}
 }
 
 // The request message containing the user's information.

@@ -38,6 +38,26 @@ public class UserProviderImpl extends UserProviderGrpc.UserProviderImplBase {
         responseObserver.onCompleted();
     }
 
+    @Override
+    public void getUserByStream(UserId request, StreamObserver<User> responseObserver){
+        String id = request.getId();
+        User user1 = User.newBuilder().setId(id)
+                .setTime(Timestamp.getDefaultInstance())
+                .setAge(11)
+                .setName("Hello 1")
+                .setId(id)
+                .build();
+        responseObserver.onNext(user1);
+        User user2 = User.newBuilder().setId(id)
+                .setTime(Timestamp.getDefaultInstance())
+                .setAge(12)
+                .setName("Hello 2")
+                .setId(id)
+                .build();
+        responseObserver.onNext(user2);
+        responseObserver.onCompleted();
+    }
+
 
     @Override
     public void getErr(UserId request, StreamObserver<User> responseObserver){
