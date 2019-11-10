@@ -29,8 +29,6 @@ public class Provider {
     public static void main(String[] args) throws Exception {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"META-INF/spring/dubbo.provider.xml"});
         context.start();
-        while(true){
-            Thread.sleep(10000);
-        }
+        System.in.read(); // press any key to exit
     }
 }

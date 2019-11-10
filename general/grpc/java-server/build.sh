@@ -16,5 +16,5 @@
 # limitations under the License.
 
 # mvn dependency:sources
-mvn clean package -Dmaven.test.skip  -Dos.detected.classifier=osx-x86_64
+mvn clean package -Dmaven.test.skip
 # mvn -X clean compile package -DskipTests=true

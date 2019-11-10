@@ -97,8 +97,9 @@ else
     JAVA_MEM_OPTS=" -server -Xms1g -Xmx1g -XX:${VM_ARGS}=128m -XX:SurvivorRatio=2 -XX:+UseParallelGC "
 fi
 
-echo -e "Starting the $SERVER_NAME ...\c"
-nohup java $JAVA_OPTS $JAVA_MEM_OPTS $JAVA_DEBUG_OPTS $JAVA_JMX_OPTS -classpath $CONF_DIR:$LIB_JARS com.ikurento.user.Provider > $STDOUT_FILE 2>&1 &
+echo -e "Starting the $SERVER_NAME ...\n"
+echo -e "press any key to exit\n"
+java $JAVA_OPTS $JAVA_MEM_OPTS $JAVA_DEBUG_OPTS $JAVA_JMX_OPTS -classpath $CONF_DIR:$LIB_JARS com.ikurento.user.Provider > $STDOUT_FILE 2>&1
 
 COUNT=0
 while [ $COUNT -lt 1 ]; do    

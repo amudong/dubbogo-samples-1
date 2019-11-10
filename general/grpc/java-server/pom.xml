@@ -27,7 +27,6 @@
         <skip_maven_deploy>false</skip_maven_deploy>
 
         <dubbo-version>2.7.5-SNAPSHOT</dubbo-version>
-        <dubbo-jsonrpc-version>1.0.1</dubbo-jsonrpc-version>
     </properties>
 
     <dependencyManagement>
@@ -69,35 +68,6 @@
             <artifactId>curator-recipes</artifactId>
             <version>4.2.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.qianmi</groupId>
-            <artifactId>dubbo-rpc-jsonrpc</artifactId>
-            <version>${dubbo-jsonrpc-version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mortbay.jetty</groupId>
-            <artifactId>jetty</artifactId>
-            <version>6.1.26</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.9.10</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.10</version>
-        </dependency>
-
         <dependency>
             <groupId>com.github.sgroschupf</groupId>
             <artifactId>zkclient</artifactId>
@@ -170,22 +140,15 @@
         </repository>
 
     </repositories>
-<!--    <pluginRepositories>-->
-<!--		  <pluginRepository>-->
-<!--              <id>nexus-aliyu</id>-->
-<!--              <url>http://maven.aliyun.com/nexus/content/groups/public</url>-->
-<!--			<releases>-->
-<!--			<enabled>true</enabled>-->
-<!--			</releases>-->
-<!--			<snapshots>-->
-<!--			<enabled>false</enabled>-->
-<!--			</snapshots>-->
-<!--		  </pluginRepository>-->
-<!--		</pluginRepositories>-->
-
 
     <build>
-
+        <extensions>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>1.6.1</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -234,29 +197,6 @@
                 </execution>
             </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <artifactId>maven-dependency-plugin</artifactId>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>unpack</id>-->
-<!--                        <phase>package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>unpack</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <artifactItems>-->
-<!--                                <artifactItem>-->
-<!--                                    <groupId>org.apache.dubbo</groupId>-->
-<!--                                    <artifactId>dubbo</artifactId>-->
-<!--                                    <version>${dubbo-version}</version>-->
-<!--                                    <outputDirectory>${project.build.directory}/dubbo</outputDirectory>-->
-<!--                                    <includes>META-INF/assembly/**</includes>-->
-<!--                                </artifactItem>-->
-<!--                            </artifactItems>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
 
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -276,6 +216,7 @@
                 </executions>
             </plugin>
         </plugins>
+
     </build>
 
 
