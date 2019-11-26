@@ -2,7 +2,7 @@
 
 ```docker-compose -f docker/docker-compose.yaml up -d```
 
-### 2.Run java server & java client following [README](https://github.com/dubbogo/dubbogo-samples/blob/master/README.md)
+### 2.Run java server & java client following [README](https://github.com/dubbogo/dubbogo-samples/blob/master/README.md)（You must run java program to initialize configuration in zookeeper）
 
 Java program will create consumer & provider common configuration in /dubbo/config/dubbo/dubbo.properties, consumer configuration in /dubbo/config/user-info-client/dubbo.properties
  and provider configuration in /dubbo/config/user-info-server/dubbo.properties.
